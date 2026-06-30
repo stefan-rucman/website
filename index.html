@@ -596,8 +596,42 @@
     transform: none;
   }
 
+ /* ── HERO IMAGE ── */
+.hero-inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 4rem;
+  align-items: flex-end;
+}
+
+.hero-image-wrap {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding-bottom: 0.25rem;
+}
+
+.hero-image-wrap img {
+  width: 100%;
+  max-width: 380px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  object-position: center top;
+  filter: grayscale(20%) contrast(1.05);
+  border: 1px solid rgba(200, 168, 75, 0.25);
+  box-shadow:
+    0 0 60px rgba(27, 95, 255, 0.12),
+    0 0 0 1px rgba(255,255,255,0.04);
+  display: block;
+}
+
   /* ── MOBILE ── */
   @media (max-width: 900px) {
+   .hero-inner { grid-template-columns: 1fr; }
+.hero-image-wrap { justify-content: flex-start; margin-top: 2rem; order: -1; }
+.hero-image-wrap img { max-width: 220px; }
     nav { padding: 1rem 1.5rem; }
     .nav-links { display: none; }
     .hero { padding: 7rem 1.5rem 4rem; }
@@ -630,7 +664,8 @@
 <!-- HERO -->
 <section class="hero">
   <div class="hero-bg"></div>
-  <div style="position:relative; z-index:1;">
+  <div class="hero-inner">
+   <div>
     <p class="hero-eyebrow">Chiang Mai, Thailand &nbsp;·&nbsp; Scientist &nbsp;·&nbsp; Moderator &nbsp;·&nbsp; Community Architect</p>
     <h1 class="hero-name">
       Dr. Stefan<br>
@@ -644,6 +679,10 @@
       <a href="https://www.meetup.com/chiang-mai-professionals-expats-and-digital-nomads/" target="_blank" class="btn-primary">Join the Community</a>
       <a href="#research" class="btn-ghost">View Research</a>
     </div>
+   </div> <!--- end left col --->
+   <div class="hero-image-wrap">
+    <img src="stefan-rucman.png" alt="Dr. Stefan Ručman" />
+  </div>
   </div>
 </section>
 
