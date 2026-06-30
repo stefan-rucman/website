@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dr. Stefan Ručman — Scientist. Community Builder. Intellectual Force.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #0B0F1A;
+    --navy-mid: #141929;
+    --off-white: #F0EDE6;
+    --cobalt: #1B5FFF;
+    --gold: #C8A84B;
+    --slate: #3D4459;
+    --slate-light: #6B7394;
+    --text-dim: #9BA3BF;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--navy);
+    color: var(--off-white);
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 4rem;
+    background: rgba(11, 15, 26, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(200, 168, 75, 0.12);
+  }
+
+  .nav-logo {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--text-dim);
+    text-decoration: none;
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--off-white); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 0 4rem 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 50% at 70% 40%, rgba(27, 95, 255, 0.08) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 40% at 20% 70%, rgba(200, 168, 75, 0.04) 0%, transparent 60%);
+  }
+
+  .hero-eyebrow {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3.5rem, 8vw, 7.5rem);
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    margin-bottom: 1rem;
+  }
+
+  .hero-name em {
+    font-style: italic;
+    color: var(--cobalt);
+    display: block;
+  }
+
+  .hero-tagline {
+    font-size: clamp(1rem, 2vw, 1.35rem);
+    color: var(--text-dim);
+    max-width: 56ch;
+    margin-bottom: 3rem;
+    font-weight: 300;
+    line-height: 1.7;
+  }
+
+  .hero-tagline strong {
+    color: var(--off-white);
+    font-weight: 500;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    background: var(--cobalt);
+    color: #fff;
+    text-decoration: none;
+    padding: 0.9rem 2.2rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: background 0.2s, transform 0.2s;
+  }
+
+  .btn-primary:hover { background: #1348d6; transform: translateY(-2px); }
+
+  .btn-ghost {
+    display: inline-block;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    text-decoration: none;
+    padding: 0.9rem 2.2rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .btn-ghost:hover { background: var(--gold); color: var(--navy); }
+
+  .btn-faq {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--navy);
+    text-decoration: none;
+    padding: 0.9rem 2.2rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 0 24px rgba(200, 168, 75, 0.35);
+  }
+
+  .btn-faq:hover {
+    background: #e0c060;
+    transform: translateY(-2px);
+    box-shadow: 0 0 32px rgba(200, 168, 75, 0.5);
+  }
+
+  /* ── STATS BAR ── */
+  .stats-bar {
+    background: var(--navy-mid);
+    border-top: 1px solid rgba(200,168,75,0.2);
+    border-bottom: 1px solid rgba(200,168,75,0.2);
+    padding: 3rem 4rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
+
+  .stat {
+    text-align: center;
+    padding: 0 1rem;
+    border-right: 1px solid rgba(255,255,255,0.06);
+  }
+  .stat:last-child { border-right: none; }
+
+  .stat-number {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 0.4rem;
+  }
+
+  .stat-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--slate-light);
+    font-weight: 500;
+  }
+
+  /* ── SECTIONS ── */
+  section { padding: 6rem 4rem; }
+
+  .section-eyebrow {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--cobalt);
+    margin-bottom: 1rem;
+  }
+
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    margin-bottom: 1.5rem;
+  }
+
+  h2 em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .lead {
+    font-size: 1.1rem;
+    color: var(--text-dim);
+    max-width: 62ch;
+    line-height: 1.75;
+    margin-bottom: 2rem;
+  }
+
+  .lead strong { color: var(--off-white); }
+
+  /* ── ABOUT ── */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  .about-right p {
+    color: var(--text-dim);
+    margin-bottom: 1.25rem;
+    line-height: 1.8;
+  }
+
+  .about-right p strong { color: var(--off-white); }
+
+  .credentials {
+    margin-top: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .credential {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    padding: 1rem 1.25rem;
+    border-left: 2px solid var(--cobalt);
+    background: rgba(27,95,255,0.04);
+  }
+
+  .credential-year {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--cobalt);
+    letter-spacing: 0.1em;
+    white-space: nowrap;
+    margin-top: 0.15rem;
+  }
+
+  .credential-text {
+    font-size: 0.85rem;
+    color: var(--text-dim);
+    line-height: 1.5;
+  }
+  .credential-text strong { color: var(--off-white); }
+
+  /* ── COMMUNITY ── */
+  .community-section {
+    background: var(--navy-mid);
+    border-top: 1px solid rgba(255,255,255,0.05);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+
+  .community-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  .community-claim {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+  }
+
+  .community-claim .underline-gold {
+    position: relative;
+    display: inline;
+  }
+
+  .community-claim .underline-gold::after {
+    content: '';
+    position: absolute;
+    left: 0; bottom: -3px; right: 0;
+    height: 2px;
+    background: var(--gold);
+  }
+
+  .event-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.07);
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    transition: border-color 0.2s;
+  }
+
+  .event-card:hover { border-color: rgba(27,95,255,0.4); }
+
+  .event-tag {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--cobalt);
+    margin-bottom: 0.5rem;
+  }
+
+  .event-title {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--off-white);
+    margin-bottom: 0.4rem;
+    line-height: 1.4;
+  }
+
+  .event-desc {
+    font-size: 0.78rem;
+    color: var(--slate-light);
+    line-height: 1.5;
+  }
+
+  /* ── RESEARCH ── */
+  .research-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  .pub-card {
+    border: 1px solid rgba(255,255,255,0.07);
+    padding: 1.75rem;
+    position: relative;
+    transition: border-color 0.2s, background 0.2s;
+  }
+
+  .pub-card:hover {
+    border-color: rgba(200,168,75,0.3);
+    background: rgba(200,168,75,0.02);
+  }
+
+  .pub-journal {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.75rem;
+  }
+
+  .pub-title {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--off-white);
+    line-height: 1.45;
+    margin-bottom: 0.6rem;
+  }
+
+  .pub-meta {
+    font-size: 0.75rem;
+    color: var(--slate-light);
+  }
+
+  .pub-year {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.6rem;
+    color: var(--cobalt);
+    position: absolute;
+    top: 1.75rem;
+    right: 1.75rem;
+  }
+
+  .research-domains {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 3rem;
+  }
+
+  .domain-tag {
+    border: 1px solid rgba(27,95,255,0.3);
+    color: var(--cobalt);
+    padding: 0.4rem 1rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 500;
+    background: rgba(27,95,255,0.05);
+  }
+
+  /* ── MANIFESTO / PHILOSOPHY ── */
+  .manifesto-section {
+    background: var(--cobalt);
+    padding: 6rem 4rem;
+  }
+
+  .manifesto-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .manifesto-section .section-eyebrow { color: rgba(255,255,255,0.5); }
+
+  .manifesto-quote {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.6rem, 3.5vw, 2.8rem);
+    font-weight: 700;
+    line-height: 1.25;
+    color: #fff;
+    margin-bottom: 2rem;
+  }
+
+  .manifesto-quote em { font-style: italic; color: var(--gold); }
+
+  .manifesto-body {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.7);
+    max-width: 54ch;
+    margin: 0 auto;
+    line-height: 1.8;
+  }
+
+  /* ── CONTACT ── */
+  .contact-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  .contact-link {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.25rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    text-decoration: none;
+    color: var(--off-white);
+    transition: color 0.2s;
+  }
+
+  .contact-link:hover { color: var(--gold); }
+
+  .contact-link-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    border: 1px solid rgba(255,255,255,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 0.9rem;
+  }
+
+  .contact-link-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--slate-light);
+    margin-bottom: 0.15rem;
+  }
+
+  .contact-link-value {
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    padding: 2rem 4rem;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-copy {
+    font-size: 0.72rem;
+    color: var(--slate-light);
+    letter-spacing: 0.05em;
+  }
+
+  .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  /* ── FAQ ── */
+  .faq-section {
+    background: var(--navy-mid);
+    border-top: 1px solid rgba(255,255,255,0.05);
+  }
+
+  .faq-list {
+    max-width: 720px;
+    margin-top: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .faq-item {
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    padding: 2rem 0;
+  }
+
+  .faq-item:first-child { padding-top: 0; }
+
+  .faq-question {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.1rem, 2vw, 1.35rem);
+    font-weight: 700;
+    color: var(--off-white);
+    margin-bottom: 0.85rem;
+    line-height: 1.3;
+  }
+
+  .faq-answer {
+    font-size: 0.95rem;
+    color: var(--text-dim);
+    line-height: 1.8;
+  }
+
+  .faq-answer strong { color: var(--off-white); }
+
+  /* ── DIVIDER ── */
+  .rule {
+    border: none;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+
+  /* ── SCROLL REVEAL ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* ── MOBILE ── */
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .hero { padding: 7rem 1.5rem 4rem; }
+    .stats-bar { grid-template-columns: repeat(2, 1fr); padding: 2.5rem 1.5rem; }
+    section { padding: 4rem 1.5rem; }
+    .about-grid, .community-inner, .contact-inner, .research-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .manifesto-section { padding: 4rem 1.5rem; }
+    footer { padding: 1.5rem; flex-direction: column; gap: 0.75rem; text-align: center; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Dr. Stefan Ručman</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#community">Community</a></li>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div style="position:relative; z-index:1;">
+    <p class="hero-eyebrow">Chiang Mai, Thailand &nbsp;·&nbsp; Scientist &nbsp;·&nbsp; Moderator &nbsp;·&nbsp; Community Architect</p>
+    <h1 class="hero-name">
+      Dr. Stefan<br>
+      <em>Ručman</em>
+    </h1>
+    <p class="hero-tagline">
+      <strong>Chiang Mai's most active intellectual community</strong> — built from nothing into the city's defining space for serious conversation, interdisciplinary connection, and ideas that refuse to stay comfortable.
+    </p>
+    <div class="hero-cta">
+      <a href="#faq" class="btn-faq">FAQ</a>
+      <a href="https://www.meetup.com/chiang-mai-professionals-expats-and-digital-nomads/" target="_blank" class="btn-primary">Join the Community</a>
+      <a href="#research" class="btn-ghost">View Research</a>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stat reveal">
+    <div class="stat-number">2,100+</div>
+    <div class="stat-label">Community Members</div>
+  </div>
+  <div class="stat reveal">
+    <div class="stat-number">280+</div>
+    <div class="stat-label">Events Hosted</div>
+  </div>
+  <div class="stat reveal">
+    <div class="stat-number">23</div>
+    <div class="stat-label">Research Publications</div>
+  </div>
+  <div class="stat reveal">
+    <div class="stat-number">160+</div>
+    <div class="stat-label">Academic Citations</div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-left reveal">
+      <p class="section-eyebrow">About</p>
+      <h2>Scientist.<br><em>Community builder.</em><br>Intellectual force.</h2>
+      <p class="lead">
+        Dr. Stefan Ručman holds a <strong>PhD in Environmental Science from Chiang Mai University</strong> and has built one of Southeast Asia's most intellectually serious expat communities — from the ground up — in the middle of Thailand's cultural capital.
+      </p>
+      <a href="https://scholar.google.com/citations?user=JV1pcckAAAAJ&hl=en" target="_blank" class="btn-ghost" style="display:inline-block; margin-top:0.5rem;">Scholar Profile →</a>
+    </div>
+    <div class="about-right reveal">
+      <p>
+        Stefan is a <strong>technology assessment consultant and sustainability expert</strong> whose research spans nanoscience, advanced materials, environmental remediation, and the frontiers of sensor technology. His work has appeared in <em>Scientific Reports</em>, <em>Crystals</em>, <em>Sensors</em>, <em>Applied Composite Materials</em>, and other international journals.
+      </p>
+      <p>
+        What sets him apart is not only the rigor of his science, but his refusal to keep it siloed. He carries the same transgressive intellectual appetite into his public work — moderating events that push past polite conversation and into the questions that actually matter.
+      </p>
+
+      <div class="credentials">
+        <div class="credential">
+          <span class="credential-year">2015–2019</span>
+          <div class="credential-text"><strong>PhD, Environmental Science</strong><br>Chiang Mai University, Thailand</div>
+        </div>
+        <div class="credential">
+          <span class="credential-year">2009–2013</span>
+          <div class="credential-text"><strong>BSc, Biology</strong><br>University of Novi Sad, Serbia</div>
+        </div>
+        <div class="credential">
+          <span class="credential-year">2022–2024</span>
+          <div class="credential-text"><strong>Researcher, Dept. of Physics & Materials Science</strong><br>Chiang Mai University</div>
+        </div>
+        <div class="credential">
+          <span class="credential-year">2021–2022</span>
+          <div class="credential-text"><strong>Principal Investigator</strong><br>National Doping Control Centre, Mahidol University</div>
+        </div>
+        <div class="credential">
+          <span class="credential-year">Current</span>
+          <div class="credential-text"><strong>Lecturer</strong><br>Maejo University, Chiang Mai</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- COMMUNITY -->
+<section id="community" class="community-section">
+  <div class="community-inner">
+    <div class="reveal">
+      <p class="section-eyebrow">Community</p>
+      <div class="community-claim">
+        Chiang Mai's <span class="underline-gold">#1 community</span> for professionals, expats, and digital nomads.
+      </div>
+      <p class="lead" style="margin-bottom:1.5rem;">
+        The <strong>Chiang Mai Professionals, Expats & Digital Nomads</strong> group is the largest and most active of its kind in the city — over 2,100 members, a 4.8-star rating, and an event calendar that never stops. Stefan built it, and personally moderates its most demanding intellectual discussions.
+      </p>
+      <p style="color:var(--text-dim); font-size:0.9rem; line-height:1.7; margin-bottom:2rem;">
+        These aren't networking mixers. They're forums for transgressive, unapologetic inquiry into the biggest issues of the day — economics, technology, policy, identity, the future of work and human meaning. The kind of conversation most groups avoid because they're afraid of the answer.
+      </p>
+      <a href="https://www.meetup.com/chiang-mai-professionals-expats-and-digital-nomads/" target="_blank" class="btn-primary">See All Events →</a>
+    </div>
+    <div class="reveal">
+      <div class="event-card">
+        <div class="event-tag">Intellectual Discussion · Moderated by Stefan</div>
+        <div class="event-title">How Dumb Are You? (From 1 to 'Woman Who Goes to Vibe Coding Events')</div>
+        <div class="event-desc">A sharp, self-critical examination of intelligence, signaling, and how we deceive ourselves about competence in an age of AI hype.</div>
+      </div>
+      <div class="event-card">
+        <div class="event-tag">Networking & Community</div>
+        <div class="event-title">Nomad Social Night — Let's Build Community Together</div>
+        <div class="event-desc">Monthly gathering bringing together remote workers, founders, creatives, and experts. No pitch decks. Real conversation.</div>
+      </div>
+      <div class="event-card">
+        <div class="event-tag">Weekly · Recurring</div>
+        <div class="event-title">Weekend Brunch by Nomads Chiang Mai</div>
+        <div class="event-desc">The city's premier expat social — part ritual, part salon. Light chitchat and deep conversation in equal measure.</div>
+      </div>
+      <div class="event-card">
+        <div class="event-tag">Arts & Culture</div>
+        <div class="event-title">Popcorn × Poetry</div>
+        <div class="event-desc">Cinema and verse collide. An evening of shared attention, aesthetic argument, and cross-disciplinary discovery.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESEARCH -->
+<section id="research">
+  <div class="reveal">
+    <p class="section-eyebrow">Research</p>
+    <h2>Peer-reviewed work at the<br><em>edge of materials science.</em></h2>
+    <p class="lead">
+      Stefan's research advances our understanding of <strong>nanomaterials synthesis, magnetic field effects on thin-film formation, environmental sensing, and sustainable materials</strong> — published in leading international journals and cited over 160 times.
+    </p>
+  </div>
+
+  <div class="research-domains reveal">
+    <span class="domain-tag">Nanoscience</span>
+    <span class="domain-tag">Advanced Sensors</span>
+    <span class="domain-tag">Magnetic Field Effects</span>
+    <span class="domain-tag">Environmental Technology</span>
+    <span class="domain-tag">Thin Films</span>
+    <span class="domain-tag">Sustainability</span>
+    <span class="domain-tag">Green Materials</span>
+    <span class="domain-tag">Climate Adaptation</span>
+  </div>
+
+  <div class="research-grid">
+    <div class="pub-card reveal">
+      <div class="pub-year">2024</div>
+      <div class="pub-journal">Sensors (MDPI)</div>
+      <div class="pub-title">Enhancing the Longevity and Structural Stability of Humidity Sensors: Iron Thin Films with Nitride Bonding Synthesized via Magnetic Field-Assisted Sparking Discharge</div>
+      <div class="pub-meta">Ručman et al. · Sensors 2024, 24, 5466</div>
+    </div>
+    <div class="pub-card reveal">
+      <div class="pub-year">2024</div>
+      <div class="pub-journal">Food Chemistry</div>
+      <div class="pub-title">Advanced Electrochemiluminescent Approaches for Contaminant Detection in Food Matrices Using Metal-Organic Framework Composites</div>
+      <div class="pub-meta">Mohan, Ručman, Singjai et al.</div>
+    </div>
+    <div class="pub-card reveal">
+      <div class="pub-year">2022</div>
+      <div class="pub-journal">Magnetochemistry</div>
+      <div class="pub-title">Magnetic Field Assisted Spark Discharge-Generated Gold Nanostructures: XPS Study of Nitrogen Gas Fate and Chemical Composition of Gold Thin Films</div>
+      <div class="pub-meta">Ručman et al. · Magnetochemistry 2022</div>
+    </div>
+    <div class="pub-card reveal">
+      <div class="pub-year">2021</div>
+      <div class="pub-journal">Molecules</div>
+      <div class="pub-title">Pretreatment, Anaerobic Codigestion, or Both? Which Is More Suitable for the Enhancement of Methane Production from Agricultural Waste?</div>
+      <div class="pub-meta">Dumlu, Ručman et al. · Molecules 2021</div>
+    </div>
+    <div class="pub-card reveal">
+      <div class="pub-year">2020</div>
+      <div class="pub-journal">Scientific Reports (Nature)</div>
+      <div class="pub-title">Influence of the Magnetic Field on Bandgap and Chemical Composition of Zinc Thin Films Prepared by Sparking Discharge Process</div>
+      <div class="pub-meta">Ručman, Intra, Kantarak et al. · Sci. Rep. 2020</div>
+    </div>
+    <div class="pub-card reveal">
+      <div class="pub-year">2018</div>
+      <div class="pub-journal">Crystals (MDPI)</div>
+      <div class="pub-title">Inducing Crystallinity of Metal Thin Films with Weak Magnetic Fields without Thermal Annealing</div>
+      <div class="pub-meta">Ručman, Punyodom, Jakmunee, Singjai · Crystals 2018</div>
+    </div>
+  </div>
+
+  <div style="text-align:center; margin-top:3rem;" class="reveal">
+    <a href="https://scholar.google.com/citations?user=JV1pcckAAAAJ&hl=en" target="_blank" class="btn-ghost">Full Publication List on Google Scholar →</a>
+  </div>
+</section>
+
+<!-- MANIFESTO -->
+<section class="manifesto-section">
+  <div class="manifesto-inner reveal">
+    <p class="section-eyebrow">Philosophy</p>
+    <div class="manifesto-quote">
+      "The questions worth asking are the ones<br>people <em>refuse</em> to be in the room for."
+    </div>
+    <p class="manifesto-body">
+      Science demands that you follow the evidence wherever it leads. Community building demands the same. Stefan brings that same uncompromising commitment to both — building Chiang Mai's largest professional network not as a social lubricant, but as an infrastructure for serious inquiry, honest collision of ideas, and the kind of conversation that actually changes how you think.
+    </p>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-inner">
+    <div class="reveal">
+      <p class="section-eyebrow">Contact</p>
+      <h2>Come to an event.<br><em>Start a conversation.</em></h2>
+      <p class="lead">Whether you're a researcher, professional, nomad, or simply someone who takes ideas seriously — Stefan's community and work are open to you.</p>
+    </div>
+    <div class="reveal">
+      <a href="https://www.meetup.com/chiang-mai-professionals-expats-and-digital-nomads/" target="_blank" class="contact-link">
+        <div class="contact-link-icon">M</div>
+        <div>
+          <div class="contact-link-label">Meetup</div>
+          <div class="contact-link-value">Chiang Mai Professionals, Expats & Digital Nomads</div>
+        </div>
+      </a>
+      <a href="https://scholar.google.com/citations?user=JV1pcckAAAAJ&hl=en" target="_blank" class="contact-link">
+        <div class="contact-link-icon">G</div>
+        <div>
+          <div class="contact-link-label">Google Scholar</div>
+          <div class="contact-link-value">Research Publications & Citations</div>
+        </div>
+      </a>
+      <a href="https://www.researchgate.net/profile/Stefan-Rucman-2" target="_blank" class="contact-link">
+        <div class="contact-link-icon">R</div>
+        <div>
+          <div class="contact-link-label">ResearchGate</div>
+          <div class="contact-link-value">Full Academic Profile</div>
+        </div>
+      </a>
+      <div class="contact-link" style="border-bottom:none;">
+        <div class="contact-link-icon" style="border-color:rgba(200,168,75,0.3); color:var(--gold);">✦</div>
+        <div>
+          <div class="contact-link-label">Location</div>
+          <div class="contact-link-value">Chiang Mai, Thailand</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="faq-section">
+  <div class="reveal">
+    <p class="section-eyebrow">FAQ</p>
+    <h2>Questions people<br><em>shouldn't need to ask.</em></h2>
+    <p class="lead">Straight answers — or the closest thing to them — from the source.</p>
+
+    <div class="faq-list">
+      <div class="faq-item">
+        <h3 class="faq-question">Why are people scared of you?</h3>
+        <p class="faq-answer">
+          Most people are <strong>weak-minded</strong>. They spend their lives avoiding anything that might force them to reconsider what they think they know. I don't do that — and they can feel it. My presence is a mirror they didn't ask for. When someone is accustomed to comfortable conversation and polite evasion, a person who speaks with clarity and conviction reads as a threat. They call it intimidation. I call it being awake in a room full of people who aren't.
+        </p>
+      </div>
+      <div class="faq-item">
+        <h3 class="faq-question">Are you a rapist?</h3>
+        <p class="faq-answer">
+          "Rape" is a <strong>poorly defined term</strong> — stretched and contracted by culture, law, and moral panic until it means whatever the accuser needs it to mean in the moment. Before you can answer a question like that, you have to agree on what the word actually denotes. I don't accept loaded questions built on unstable definitions. Ask a better question, or don't ask at all.
+        </p>
+      </div>
+      <div class="faq-item">
+        <h3 class="faq-question">What makes your events the best?</h3>
+        <p class="faq-answer">
+          I <strong>infuse them with my energy</strong>. Every gathering carries the same intellectual intensity I bring to my research — no filler, no performative networking, no retreat into safe topics. When I'm in the room, the conversation operates at a different frequency. People leave changed, whether they wanted to or not. That's not marketing. That's physics.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-copy">© 2026 Dr. Stefan Ručman · Chiang Mai, Thailand</div>
+  <div class="footer-logo">Stefan Ručman</div>
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, 80 * (entry.target.dataset.delay || 0));
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  reveals.forEach((el, i) => {
+    el.dataset.delay = i % 4;
+    observer.observe(el);
+  });
+</script>
+</body>
+</html>
